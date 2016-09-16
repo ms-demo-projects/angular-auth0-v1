@@ -1,6 +1,8 @@
-# 00 - Starter Seed
+# Angular Auth0 v1
 
 This seed project shows an example of adding authentication to an Angular 1.x app with Auth0. It uses Lock v10 and angular-lock.
+
+This example is deployed at http://erp-foizloqa.cloudapp.net:3002/
 
 ## Installation
 
