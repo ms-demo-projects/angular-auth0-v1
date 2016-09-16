@@ -27,7 +27,7 @@
         tokenGetter: function() {
           return localStorage.getItem('id_token');
         },
-        whiteListedDomains: ['localhost'],
+        whiteListedDomains: ['localhost','erp-foizloqa.cloudapp.net'],
         unauthenticatedRedirectPath: '/login'
       });
 
