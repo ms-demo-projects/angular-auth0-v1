@@ -6,7 +6,11 @@
     .module('app', ['auth0.lock', 'angular-jwt', 'ngRoute'])
     .config(config)
 
-    .constant( 'AUTH0', {'AUTH0_CLIENT_ID': 'G2lon5KBOqRiZlUYfoEerDdf4iCRoodt', 'AUTH0_DOMAIN': 'smartsense.auth0.com'});
+    .constant( 'AUTH0', {
+      'AUTH0_CLIENT_ID': 'G2lon5KBOqRiZlUYfoEerDdf4iCRoodt', 
+      'AUTH0_DOMAIN': 'smartsense.auth0.com',
+      'API_URL': 'http://erp-foizloqa.cloudapp.net:3001/'
+    });
 
     config.$inject = ['$routeProvider', '$httpProvider', 'lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', 'AUTH0'];
 

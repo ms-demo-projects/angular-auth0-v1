@@ -6,9 +6,9 @@
     .module('app')
     .service('authService', authService);
 
-  authService.$inject = ['$http', '$rootScope', 'lock', 'authManager'];
+  authService.$inject = ['$http', '$rootScope', 'lock', 'authManager', 'AUTH0'];
 
-  function authService($http, $rootScope, lock, authManager) {
+  function authService($http, $rootScope, lock, authManager, AUTH0) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
@@ -41,7 +41,7 @@
           $rootScope.$broadcast('userProfileSet', profile);
 
           /* post the user profile details to nodejs server api */
-          $http.post('http://localhost:3001/users', profile)
+          $http.post(AUTH0.API_URL+'users', profile)
           .then(function(result) {
             console.log(result.data);
           }, function(error) {
@@ -57,7 +57,7 @@
     function getUserByEmail(){
       var userProfile = JSON.parse(localStorage.getItem('profile'));
 
-      return $http.get('http://localhost:3001/users/'+userProfile.email)
+      return $http.get(AUTH0.API_URL+'users/'+userProfile.email)
       .then(function(result) {
         return result.data;
       }, function(error) {
